@@ -10,32 +10,32 @@ public class tictactoe {
             board[i] = ' ';
         }
 
-        for (int round = 0; round < 9; round++) {
+        for (int round = 0; round < 9;) {
 
             System.out.println(board[0] + "|" + board[1] + "|" + board[2] + "\n" +
                     "-+-+-" + "\n" +
                     board[3] + "|" + board[4] + "|" + board[5] + "\n" +
                     "-+-+-" + "\n" +
-                    board[6] + "|" + board[7] + "|" + board[8]);
+                    board[6] + "|" + board[7] + "|" + board[8] + "\n");
+
+
+
 
 
             System.out.println("It is your turn " + turn + ", move to which place?");
 
-            if (turn == 'X') {
-                turn = 'O';
-            }
-            else {
-                turn = 'X';
-            }
 
+                Scanner scan = new Scanner(System.in);
+                play = Integer.parseInt(scan.nextLine());
+                play = play - 1;
 
-            Scanner scan = new Scanner(System.in);
-            play = Integer.parseInt( scan.nextLine());
-            play = play -1;
-            board[play] = turn;
-
-
-
+                    if (board[play] == ' ') {
+                        board[play] = turn;
+                        round = round + 1;
+                    } else {
+                        System.out.println("That place is already filled.\nMove to which place?");
+                        continue;
+                    }
 
 
 
@@ -50,6 +50,7 @@ public class tictactoe {
                         board[3] + "|" + board[4] + "|" + board[5] + "\n" +
                         "-+-+-" + "\n" +
                         board[6] + "|" + board[7] + "|" + board[8]);
+                break;
             }
 
 
@@ -60,6 +61,7 @@ public class tictactoe {
                         board[3] + "|" + board[4] + "|" + board[5] + "\n" +
                         "-+-+-" + "\n" +
                         board[6] + "|" + board[7] + "|" + board[8]);
+                break;
             }
 
 
@@ -70,6 +72,7 @@ public class tictactoe {
                         board[3] + "|" + board[4] + "|" + board[5] + "\n" +
                         "-+-+-" + "\n" +
                         board[6] + "|" + board[7] + "|" + board[8]);
+                break;
             }
 
 
@@ -81,6 +84,7 @@ public class tictactoe {
                         board[3] + "|" + board[4] + "|" + board[5] + "\n" +
                         "-+-+-" + "\n" +
                         board[6] + "|" + board[7] + "|" + board[8]);
+                break;
             }
 
 
@@ -92,6 +96,7 @@ public class tictactoe {
                         board[3] + "|" + board[4] + "|" + board[5] + "\n" +
                         "-+-+-" + "\n" +
                         board[6] + "|" + board[7] + "|" + board[8]);
+                break;
             }
 
 
@@ -103,6 +108,7 @@ public class tictactoe {
                         board[3] + "|" + board[4] + "|" + board[5] + "\n" +
                         "-+-+-" + "\n" +
                         board[6] + "|" + board[7] + "|" + board[8]);
+                break;
             }
 
 
@@ -114,6 +120,7 @@ public class tictactoe {
                         board[3] + "|" + board[4] + "|" + board[5] + "\n" +
                         "-+-+-" + "\n" +
                         board[6] + "|" + board[7] + "|" + board[8]);
+                break;
             }
 
 
@@ -125,13 +132,25 @@ public class tictactoe {
                         board[3] + "|" + board[4] + "|" + board[5] + "\n" +
                         "-+-+-" + "\n" +
                         board[6] + "|" + board[7] + "|" + board[8]);
+                break;
             }
 
+            if (round == 9) {
+                System.out.println("It's a Tie!");
+                System.out.println(board[0] + "|" + board[1] + "|" + board[2] + "\n" +
+                        "-+-+-" + "\n" +
+                        board[3] + "|" + board[4] + "|" + board[5] + "\n" +
+                        "-+-+-" + "\n" +
+                        board[6] + "|" + board[7] + "|" + board[8]);
+                break;
+            }
 
-
-
-
-
+            if (turn == 'O') {
+                turn = 'X';
+            }
+            else {
+                turn = 'O';
+            }
         }
     }
 }
